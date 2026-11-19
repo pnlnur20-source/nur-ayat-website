@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffe5ef"><title>Nur & Ayat — Forever Us</title>
+<style>
+:root{--pink:#f16d9d;--deep:#b8326b;--ink:#55243a;--soft:#fff5f8}
+*{box-sizing:border-box}body{margin:0;font-family:Georgia,serif;color:var(--ink);background:linear-gradient(135deg,#fff5f8,#ffe0eb 48%,#fff8fb);min-height:100vh}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px clamp(16px,5vw,65px);gap:12px;flex-wrap:wrap}
+.brand{font-size:20px;font-weight:bold}.brand span{color:var(--pink)}nav a{color:var(--deep);text-decoration:none;margin-left:15px;font:700 12px Arial}
+.hero{text-align:center;padding:55px 18px 40px}.eyebrow{font:700 11px Arial;letter-spacing:.25em;text-transform:uppercase;color:var(--deep)}
+h1{font-size:clamp(52px,10vw,94px);line-height:.98;margin:17px 0;color:#a92e61;font-weight:500}h1 em{color:var(--pink);font-weight:400}
+.hero p,.intro{font:14px Arial;color:#98627a}.heart{font-size:30px;color:var(--pink);animation:pulse 1.6s infinite}@keyframes pulse{50%{transform:scale(1.2)}}
+.wrap{max-width:1000px;margin:auto;padding:18px}.panel{background:#ffffffc9;border:1px solid #ffd0e0;box-shadow:0 18px 55px #b93c6a12;border-radius:24px;padding:clamp(20px,4vw,34px);margin-bottom:24px}
+h2{text-align:center;font-weight:500;font-size:32px;margin:0 0 8px}.intro{text-align:center;margin:0 0 22px}
+.counter{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}.unit{background:var(--soft);border:1px solid #ffd7e4;border-radius:16px;padding:15px 5px;text-align:center}.unit strong{display:block;font:700 clamp(23px,5vw,35px) Arial;color:var(--deep)}.unit span{font:10px Arial;letter-spacing:.12em;color:#a56a82;text-transform:uppercase}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:13px}.photo{background:#fff0f5;border-radius:16px;overflow:hidden;border:1px solid #ffd2e2}.photo img{width:100%;height:190px;object-fit:cover;display:block}.photo p{font:13px Arial;padding:0 12px 12px;margin:10px 0 0}
+.track{display:flex;align-items:center;gap:12px;padding:13px;border-bottom:1px solid #f8d6e2;font:14px Arial}.track:last-child{border:0}.track .disc{width:42px;height:42px;border-radius:50%;background:radial-gradient(circle,#fff 0 8%,#ef91b2 9% 20%,#a83265 21% 100%);display:grid;place-items:center;color:white}.track audio{width:min(100%,420px);margin-left:auto}
+.empty{padding:22px;text-align:center;border:1px dashed #f3aec7;border-radius:15px;color:#98627a;font:13px Arial}
+#publishedTemplate iframe{width:100%;height:420px;border:1px solid #ffd0e0;border-radius:16px;background:white}
+footer{text-align:center;padding:25px;color:#a36b82;font:12px Arial}
+.admin-toggle{border:1px solid #ffc5d9;border-radius:20px;padding:8px 13px;background:#fff0f5;color:var(--deep);cursor:pointer;font:700 12px Arial}
+#adminArea{display:none}#adminArea.open{display:block}
+input,textarea{font:14px Arial;color:var(--ink);background:#fff;border:1px solid #f2bfd2;border-radius:10px;padding:11px;width:100%;margin:6px 0 12px}
+textarea{min-height:130px;font:12px/1.5 monospace;resize:vertical}
+label{font:700 11px Arial;letter-spacing:.1em;color:#a43c69}
+button{border:0;border-radius:24px;background:var(--deep);color:white;padding:11px 17px;font:700 12px Arial;cursor:pointer}button.alt{background:#ffe3ed;color:var(--deep);border:1px solid #ffc5d9}button.danger{background:#a9284e}
+.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.admin-card{background:#fff8fb;border:1px solid #ffd0e0;border-radius:16px;padding:16px;min-width:0}.actions{display:flex;gap:8px;flex-wrap:wrap}.status{font:12px Arial;color:#8e5570;min-height:18px;margin-top:8px}
+@media(max-width:650px){nav{justify-content:center}.counter{grid-template-columns:repeat(2,1fr)}.admin-grid{grid-template-columns:1fr}.track{flex-wrap:wrap}.track audio{width:100%;margin:0}}
+</style>
+</head>
+<body>
+<nav><div class="brand">NUR <span>♥</span> AYAT</div><div><a href="#time">OUR TIME</a><a href="#music">MUSIC</a><a href="#memories">MEMORIES</a> <button class="admin-toggle" id="showAdmin">ADMIN</button></div></nav>
+<header class="hero"><div class="eyebrow">A little world made for two</div><h1>Nur <em>&</em><br>Ayat</h1><div class="heart">♡</div><p>Two hearts, one beautiful story.</p></header>
+<main class="wrap">
+<section class="panel" id="time"><div class="eyebrow" style="text-align:center">Since October 08, 2026</div><h2>Every moment with you matters</h2><div class="counter"><div class="unit"><strong id="days">0</strong><span>Days</span></div><div class="unit"><strong id="hours">00</strong><span>Hours</span></div><div class="unit"><strong id="minutes">00</strong><span>Minutes</span></div><div class="unit"><strong id="seconds">00</strong><span>Seconds</span></div></div></section>
+<section class="panel" id="music"><h2>Our Little Soundtrack</h2><p class="intro">Songs added by Nur will appear here for everyone.</p><div id="tracks" class="empty">Loading songs…</div></section>
+<section class="panel" id="memories"><h2>Our Memories</h2><p class="intro">Little moments, forever treasured.</p><div id="photos" class="gallery"><div class="empty">Loading memories…</div></div></section>
+<section class="panel" id="publishedTemplate" style="display:none"><h2>Our New Design</h2><p class="intro">A template published by the admin.</p><iframe id="publicTemplate" sandbox="allow-scripts" title="Published template"></iframe></section>
+<section class="panel" style="text-align:center;max-width:760px;margin:0 auto 24px"><div class="eyebrow">A little note</div><h2>To Ayat, with love</h2><p style="line-height:1.9">In a world full of moments, you're one of my favourites. Here's to every laugh, every little adventure, and all the beautiful memories still waiting for us. <span style="color:#e96b99">♡</span></p><i>Forever yours, Nur</i></section>
+<section id="adminArea" class="panel">
+ <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap"><div><div class="eyebrow">Private workspace</div><h2 style="text-align:left">Admin Control</h2></div><button class="alt" id="logout" style="display:none">Log out</button></div>
+ <div id="loginBox"><p class="intro" style="text-align:left">Admin sign-in only. Admin accounts are created in Firebase Console, not on this public page.</p><label>ADMIN EMAIL</label><input id="email" type="email" autocomplete="username" value="nurkalam.ofc.ayat@gmail.com" placeholder="Admin email"><label>PASSWORD</label><input id="password" type="password" autocomplete="current-password" placeholder="Your password"><button id="login">Secure login</button></div>
+ <div id="adminTools" style="display:none">
+  <p class="intro" style="text-align:left">Uploads and published templates sync to every visitor in real time.</p>
+  <div class="admin-grid">
+   <div class="admin-card"><h3>📷 Add a photo</h3><label>PHOTO FILE</label><input id="photoFile" type="file" accept="image/*"><label>CAPTION</label><input id="photoCaption" placeholder="A lovely memory"><button id="uploadPhoto">Upload photo</button></div>
+   <div class="admin-card"><h3>🎵 Add romantic music</h3><label>AUDIO FILE (MP3, M4A, etc.)</label><input id="audioFile" type="file" accept="audio/*"><label>SONG TITLE</label><input id="songTitle" placeholder="Song for us"><button id="uploadAudio">Upload song</button></div>
+   <div class="admin-card"><h3>🧩 HTML / CSS / JS Template Studio</h3><label>TEMPLATE TITLE</label><input id="templateTitle" value="Our special template"><label>HTML</label><textarea id="templateHtml" placeholder="<h1>Hello, Nur & Ayat</h1>"></textarea><label>CSS</label><textarea id="templateCss" placeholder="body { background: pink; }"></textarea><label>JAVASCRIPT</label><textarea id="templateJs" placeholder="console.log('Hello!')"></textarea><div class="actions"><button id="previewTemplate" class="alt">Preview</button><button id="publishTemplate">Publish to everyone</button></div></div>
+   <div class="admin-card"><h3>🗂️ Manage uploads</h3><p class="intro" style="text-align:left">Remove a photo or song from the public site.</p><div id="manageList">Loading…</div></div>
+  </div>
+  <div class="admin-card" style="margin-top:14px"><label>PRIVATE PREVIEW</label><iframe id="adminPreview" sandbox="allow-scripts" title="Admin template preview" style="width:100%;height:260px;border:1px solid #ffd0e0;border-radius:12px;background:white"></iframe></div>
+ </div>
+ <div class="status" id="status" aria-live="polite"></div>
+</section>
+</main><footer>Made with love for Nur & Ayat · <span id="year"></span></footer>
+<script type="module" src="./app.js"></script>
+</body></html>
