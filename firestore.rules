@@ -1,0 +1,41 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null && request.auth.uid == "rpjasSyCySM5jMgnemXrXLuQS2k1";
+    }
+    match /photos/{photoId} {
+      allow read: if true;
+      allow create: if isAdmin()
+        && request.resource.data.keys().hasOnly(['url','storagePath','caption','contentType','createdAt'])
+        && request.resource.data.url is string
+        && request.resource.data.storagePath is string
+        && request.resource.data.caption is string;
+      allow delete: if isAdmin();
+      allow update: if false;
+    }
+    match /tracks/{trackId} {
+      allow read: if true;
+      allow create: if isAdmin()
+        && request.resource.data.keys().hasOnly(['url','storagePath','title','contentType','createdAt'])
+        && request.resource.data.url is string
+        && request.resource.data.storagePath is string
+        && request.resource.data.title is string;
+      allow delete: if isAdmin();
+      allow update: if false;
+    }
+    match /site/{docId} {
+      allow read: if true;
+      allow write: if isAdmin() && docId == "publishedTemplate"
+        && request.resource.data.keys().hasOnly(['title','html','css','js','updatedAt'])
+        && request.resource.data.title is string
+        && request.resource.data.html is string
+        && request.resource.data.css is string
+        && request.resource.data.js is string
+        && request.resource.data.html.size() < 50000
+        && request.resource.data.css.size() < 50000
+        && request.resource.data.js.size() < 30000;
+    }
+    match /{document=**} { allow read, write: if false; }
+  }
+}
